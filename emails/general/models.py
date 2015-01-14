@@ -6,6 +6,10 @@ class Person(models.Model):
     name = models.CharField(u'Name', max_length=200, null=False, blank=False)
     email = models.EmailField(u'E-mail')
 
+    class Meta:
+        verbose_name = u'Person'
+        verbose_name_plural = u'People'
+
     def __unicode__(self):
         return '%s' % self.name
 
