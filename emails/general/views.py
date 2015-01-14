@@ -11,4 +11,4 @@ def list(request):
     return render(request, 'list.html', {'people': people})
 
 def add(request):
-    return render(request)
+    return render(request, 'add.html')
