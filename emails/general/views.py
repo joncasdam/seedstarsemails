@@ -8,7 +8,7 @@ def index(request):
 
 def list(request):
     people = Person.get_all_people()
-    return render(request)
+    return render(request, 'list.html', {'people': people})
 
 def add(request):
     return render(request)

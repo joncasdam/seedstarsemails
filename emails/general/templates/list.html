@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
+<div class="container-fluid">
+    <h1>E-mails list</h1>
+    <ul>
+        {% for p in people %}
+        <li>{{ p }}</li>
+        {% empty %}
+        <h3>List empty</h3>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
