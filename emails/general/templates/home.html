@@ -2,7 +2,9 @@
 
 {% block conteudo %}
 <div class="container-fluid">
-    <div>
-    </div>
+    <ul>
+        <li><a href="{% url 'list' %}" title="List">List</a></li>
+        <li><a href="{% url 'add' %}" title="Add">Add</a></li>
+    </ul>
 </div>
 {% endblock %}
