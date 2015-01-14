@@ -5,7 +5,7 @@
     <h1>E-mails list</h1>
     <ul>
         {% for p in people %}
-        <li>{{ p }}</li>
+        <li>{{ p.name }} - {{ p.email }}</li>
         {% empty %}
         <h3>List empty</h3>
         {% endfor %}
