@@ -11,4 +11,26 @@ def list(request):
     return render(request, 'list.html', {'people': people})
 
 def add(request):
-    return render(request, 'add.html')
+    contexto = {}
+    if request.method == 'POST':
+        print request.POST
+        name = request.POST.get('name', None)
+        email = request.POST.get('email', None)
+        if not name:
+            contexto.update({'error_name': 'Preencha o campo nome'})
+        else:
+            contexto.update({'name': name})
+        if not email:
+            contexto.update({'error_email': 'Preencha o campo email'})
+        else:
+            contexto.update({'email': email})
+
+        if name and email:
+            pessoa, c = Person.objects.get_or_create(email=email)
+            if pessoa:
+                pessoa.name = name
+                pessoa.save()
+
+            contexto.update({'success': 'Formulário enviado com sucesso!'})
+    print contexto
+    return render(request, 'add.html', contexto)
